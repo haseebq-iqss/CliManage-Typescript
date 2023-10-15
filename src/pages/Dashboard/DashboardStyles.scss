@@ -1,0 +1,24 @@
+@import "../../index.scss";
+
+.dashboardContainer {
+  @include Flex(column, center, flex-start, 30px);
+  width: 100vw;
+  padding: 10px 75px;
+  min-height: 100vh;
+
+  .addButtonsContainer {
+    @include Flex(row, center, flex-end, 25px);
+  }
+
+  .header-text {
+    width: 100%;
+    font-weight: 600;
+    font-size: 1.5rem;
+    float: right;
+  }
+
+  .projectCardsContainer {
+    @include Flex(row, flex-start, space-between, 10px);
+    flex-wrap: wrap;
+  }
+}

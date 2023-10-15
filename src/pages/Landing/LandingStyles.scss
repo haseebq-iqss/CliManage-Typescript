@@ -1,0 +1,19 @@
+@import "../../index.scss";
+
+.landingContainer {
+  @include Flex(column, center, center, 10px);
+  min-height: 100vh;
+  background-color: white;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: black;
+  }
+
+  h6 {
+    font-style: italic;
+    font-size: xx-small;
+    color: black;
+  }
+}

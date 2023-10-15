@@ -1,0 +1,29 @@
+@import "../../index.scss";
+
+.clientCardContainer {
+  @include Flex(column, center, center, 10px);
+  min-width: 200px;
+  max-width: 40%;
+  padding: 25px;
+  margin: auto;
+  border: 2px solid black;
+  border-radius: 5px;
+
+  h2 {
+    font-weight: 500;
+    padding-bottom: 5px;
+  }
+
+  & > div {
+    @include Flex(row, center, center, 20px);
+
+    h4 {
+        font-weight: 500;
+    }
+  }
+  
+  hr {
+    width: 100%;
+    height: 2px;
+}
+}

@@ -1,0 +1,39 @@
+@import "../../index.scss";
+
+.projectContainer {
+  @include Flex(column, center, center, 25px);
+  width: 75%;
+  margin: auto;
+  padding: 25px;
+
+  .projectOptions {
+    @include Flex(row, center, flex-start, 20px);
+  }
+
+  h1 {
+    font-weight: 600;
+  }
+
+  .statusOptions {
+    @include Flex(row, center, center, 10px);
+    h2 {
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  h4 {
+    span {
+      font-weight: 500;
+    }
+  }
+
+  .changeStatus {
+    @include Flex(row, center, center, 10px);
+
+    h3 {
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import "../../index.scss";
+
+.projCardContainer {
+  @include Flex(column, flex-start, flex-start, 5px);
+  width: 49%;
+  min-height: 150px;
+  border: 2px solid grey;
+  //   background-color: rgba(0, 0, 0);
+  //   color: white;
+  border-radius: 5px;
+  padding: 25px;
+
+  .status-view-column {
+    @include Flex(row, center, space-between);
+    h3 {
+      font-weight: 600;
+    }
+  }
+
+  h4 {
+    span {
+      font-weight: 500;
+    }
+  }
+
+  h5 {
+    span {
+      font-weight: 500;
+    }
+  }
+}
