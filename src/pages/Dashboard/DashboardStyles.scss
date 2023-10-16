@@ -10,15 +10,69 @@
     @include Flex(row, center, flex-end, 25px);
   }
 
-  .header-text {
-    width: 100%;
-    font-weight: 600;
-    font-size: 1.5rem;
-    float: right;
-  }
-
   .projectCardsContainer {
     @include Flex(row, flex-start, space-between, 10px);
     flex-wrap: wrap;
   }
 }
+
+// OVER 1080px
+@media screen and (max-width: 1080px) {
+  // BASE QUERY
+}
+
+// OVER 768px
+@media screen and (max-width: 768px) {
+  .dashboardContainer {
+    @include Flex(column, center, flex-start, 15px);
+    padding: 25px 15px;
+
+    .addButtonsContainer {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// OVER 480px
+@media screen and (max-width: 480px) {
+  .dashboardContainer {
+    @include Flex(column, center, flex-start, 15px);
+    padding: 25px 5px;
+
+    .addButtonsContainer {
+      @include Flex(row, center, flex-end, 10px);
+    }
+  }
+}
+
+// OVER 280px
+@media screen and (max-width: 300px) {
+  .dashboardContainer {
+    @include Flex(column, center, flex-start, 15px);
+    padding: 25px 5px;
+
+    .addButtonsContainer {
+      @include Flex(column, flex-start, center, 10px);
+      padding: 5px;
+    }
+  }
+}
+
+// // OVER 1080px
+// @media screen and (max-width: 1080px) {
+//   // BASE QUERY
+// }
+
+// // OVER 768px
+// @media screen and (max-width: 768px) {
+
+// }
+
+// // OVER 480px
+// @media screen and (max-width: 480px) {
+
+// }
+
+// // OVER 280px
+// @media screen and (max-width: 280px) {
+// }

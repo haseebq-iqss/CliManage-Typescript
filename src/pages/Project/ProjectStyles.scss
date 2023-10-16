@@ -37,3 +37,67 @@
     }
   }
 }
+
+// OVER 1080px
+@media screen and (max-width: 1080px) {
+  // BASE QUERY
+}
+
+// OVER 768px
+@media screen and (max-width: 768px) {
+  .projectContainer {
+    .statusOptions {
+      @include Flex(row, center, flex-start, 10px);
+      h2 {
+        span {
+          font-weight: 600;
+        }
+      }
+    }
+
+    .changeStatus {
+      @include Flex(row, center, flex-start, 20px);
+
+      h3 {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// OVER 480px
+@media screen and (max-width: 480px) {
+  .projectContainer {
+    @include Flex(column, center, center, 25px);
+    width: 100%;
+    margin: auto;
+    padding: 25px;
+
+    .projectOptions {
+      @include Flex(column, flex-start, flex-start, 20px);
+    }
+
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+// OVER 280px
+@media screen and (max-width: 280px) {
+  .projectContainer {
+    width: 100%;
+    padding: 10px;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      span {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

@@ -29,3 +29,55 @@
     }
   }
 }
+
+// OVER 1080px
+@media screen and (max-width: 1080px) {
+  // BASE QUERY
+}
+
+// OVER 768px
+@media screen and (max-width: 768px) {
+  .projCardContainer {
+    @include Flex(column, flex-start, flex-start, 25px);
+    min-height: 250px;
+    padding: 15px;
+
+    .status-view-column {
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    h4 {
+      span {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+// OVER 480px
+@media screen and (max-width: 480px) {
+  .projCardContainer {
+    @include Flex(column, flex-start, flex-start, 25px);
+    min-height: 250px;
+    padding: 15px;
+
+    .status-view-column {
+      h3 {
+        font-size: 1.25rem;
+        width: 70%;
+      }
+    }
+
+    h4 {
+      span {
+        font-size: 1.15rem;
+      }
+    }
+  }
+}
+
+// OVER 280px
+@media screen and (max-width: 280px) {
+}

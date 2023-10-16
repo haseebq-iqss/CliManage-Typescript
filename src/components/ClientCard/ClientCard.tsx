@@ -8,7 +8,6 @@ interface ClientCardInterface {
 }
 
 function ClientCard({ client }: ClientCardInterface) {
-  console.log(client);
   return (
     <SlideInAnimator time={0.25}>
       <div className="clientCardContainer">

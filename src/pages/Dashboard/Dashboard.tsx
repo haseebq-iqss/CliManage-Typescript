@@ -84,7 +84,11 @@ function Dashboard() {
         <AnimatePresence mode="wait">
           {/* CLIENT TABLE */}
           {loading ? (
+            <>
             <LinearProgress color="inherit" sx={{ width: "100%" }} />
+            <h3 style={{fontWeight:500}}>Hosted on Free Server ; {"("}</h3>
+            <h3 style={{}}>Servers are slow (might take over 30 seconds)</h3>
+            </>
           ) : error ? (
             <h1>Error!</h1>
           ) : (
