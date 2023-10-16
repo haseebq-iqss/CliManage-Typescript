@@ -1,5 +1,4 @@
 import { Box, Divider, Modal as RootModal, Typography } from "@mui/material";
-import React from "react";
 
 function Modal({ children, openModal, setOpenModal, header }: any) {
   return (
