@@ -9,7 +9,7 @@ import { MuiTheme } from "./ui/MuiTheme";
 
 function App() {
   const ApolloClient = new ApolloClientInitializer({
-    uri: "http://localhost:5000/graphql",
+    uri: "https://climanage-be.onrender.com/graphql",
     cache: new InMemoryCache(),
   });
 
