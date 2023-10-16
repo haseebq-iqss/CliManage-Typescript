@@ -1,8 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import SButton from "../../ui/Button/Button";
 import "./ProjectCardStyles.scss";
+import { Project } from "../../types/ProjectTypes";
 
-function ProjectCard({ project }: any) {
+interface ProjectCardInterface {
+  project: Project;
+}
+
+function ProjectCard({ project }: ProjectCardInterface) {
   const navigate = useNavigate();
 
   return (

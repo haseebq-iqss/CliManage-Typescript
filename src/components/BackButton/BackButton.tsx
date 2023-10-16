@@ -1,7 +1,6 @@
-import React from "react";
-import SButton from "../../ui/Button/Button";
-import { useNavigate } from "react-router-dom";
 import { ArrowBack } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import SButton from "../../ui/Button/Button";
 
 function BackButton() {
   const navigate = useNavigate();

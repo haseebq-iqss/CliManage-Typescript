@@ -1,7 +1,4 @@
-import React from "react";
-import Modal from "../../ui/Modal/Modal";
-import Form from "../../ui/Form/Form";
-import InputField from "../../ui/InputField/InputField";
+import { useMutation } from "@apollo/client";
 import {
   Add,
   Description,
@@ -9,19 +6,33 @@ import {
   Percent,
   PersonAdd,
 } from "@mui/icons-material";
-import SButton from "../../ui/Button/Button";
+import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import React, { ChangeEvent } from "react";
 import { SlideInAnimator } from "../../animation-engine/AnimatorPresets";
 import { ADD_PROJECT_GQ } from "../../mutations/projectMutation";
-import { useMutation } from "@apollo/client";
 import { GET_PROJECTS_GQ } from "../../queries/projectQueries";
-import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import { Client } from "../../types/ClientTypes";
+import SButton from "../../ui/Button/Button";
+import Form from "../../ui/Form/Form";
+import InputField from "../../ui/InputField/InputField";
+import Modal from "../../ui/Modal/Modal";
+import { ProjectStatus } from "../../types/ProjectTypes";
 
-type ProjectStatus = "new" | "progress" | "completed";
+interface AddProjectModalInterface {
+  openModal: boolean;
+  setOpenModal: (openModal: boolean) => void;
+  clientData: [Client];
+}
 
-function AddProjectModal({ openModal, setOpenModal, clientData }: any) {
-  const [projectName, setProjectName] = React.useState<string>("");
-  const [projectDescription, setProjectDescription] =
-    React.useState<string>("");
+function AddProjectModal({
+  openModal,
+  setOpenModal,
+  clientData,
+}: AddProjectModalInterface) {
+  const [projectName, setProjectName] = React.useState<string | null>("");
+  const [projectDescription, setProjectDescription] = React.useState<
+    string | null
+  >("");
   const [projectClientId, setProjectClientId] = React.useState<string>("");
   const [projectStatus, setProjectStatus] =
     React.useState<ProjectStatus>("new");
@@ -43,7 +54,7 @@ function AddProjectModal({ openModal, setOpenModal, clientData }: any) {
       });
       setOpenModal(!openModal);
     } else {
-      console.log("Please provide a client!");
+      alert("Please provide a client!");
     }
   }
 
@@ -60,7 +71,9 @@ function AddProjectModal({ openModal, setOpenModal, clientData }: any) {
             defaultValue={projectName}
             type="text"
             label={"Name"}
-            onChangeCb={(e: any) => setProjectName(e.target.value)}
+            onChangeCb={(e: ChangeEvent<HTMLInputElement>) =>
+              setProjectName(e.target.value)
+            }
             endIcon={<Note />}
           />
           <InputField
@@ -69,7 +82,9 @@ function AddProjectModal({ openModal, setOpenModal, clientData }: any) {
             type="text"
             multiline
             label={"Description"}
-            onChangeCb={(e: any) => setProjectDescription(e.target.value)}
+            onChangeCb={(e: ChangeEvent<any>) =>
+              setProjectDescription(e.target.value)
+            }
             endIcon={<Description />}
           />
           {/* SELECT STATUS */}
@@ -96,7 +111,7 @@ function AddProjectModal({ openModal, setOpenModal, clientData }: any) {
               setProjectClientId(e.target.value)
             }
           >
-            {clientData?.map((client: any) => {
+            {clientData?.map((client) => {
               return (
                 <MenuItem key={client.id} value={client.id}>
                   {client.name}

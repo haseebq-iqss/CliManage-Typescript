@@ -1,4 +1,3 @@
-import React from "react";
 import "./NotFound.scss";
 import BackButton from "../../components/BackButton/BackButton";
 import { FadeInAnimator } from "../../animation-engine/AnimatorPresets";

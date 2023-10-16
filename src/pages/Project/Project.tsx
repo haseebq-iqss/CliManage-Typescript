@@ -1,24 +1,29 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
-import "./ProjectStyles.scss";
-import { GET_PROJECTS_GQ, GET_PROJECT_GQ } from "../../queries/projectQueries";
-import { FadeInAnimator } from "../../animation-engine/AnimatorPresets";
-import BackButton from "../../components/BackButton/BackButton";
-import ClientCard from "../../components/ClientCard/ClientCard";
-import { AnimatePresence } from "framer-motion";
+import { DeleteForever, Save, SwapVert } from "@mui/icons-material";
 import {
   LinearProgress,
   MenuItem,
   Select,
   SelectChangeEvent,
 } from "@mui/material";
+import { AnimatePresence } from "framer-motion";
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { FadeInAnimator } from "../../animation-engine/AnimatorPresets";
+import BackButton from "../../components/BackButton/BackButton";
+import ClientCard from "../../components/ClientCard/ClientCard";
 import {
   DELETE_PROJECT_GQ,
   UPDATE_PROJECT_GQ,
 } from "../../mutations/projectMutation";
+import { GET_PROJECTS_GQ, GET_PROJECT_GQ } from "../../queries/projectQueries";
+import { Project as ProjectTypes } from "../../types/ProjectTypes";
 import SButton from "../../ui/Button/Button";
-import { DeleteForever, Percent, Save, SwapVert } from "@mui/icons-material";
+import "./ProjectStyles.scss";
+
+interface GetProjectInterface {
+  project: ProjectTypes;
+}
 
 function Project() {
   const { pid } = useParams();
@@ -27,12 +32,16 @@ function Project() {
 
   const [newStatus, setNewStatus] = React.useState("");
 
-  const { data, loading, error } = useQuery(GET_PROJECT_GQ, {
-    variables: {
-      id: pid,
-    },
-  });
+  const { data, loading, error } = useQuery<GetProjectInterface>(
+    GET_PROJECT_GQ,
+    {
+      variables: {
+        id: pid,
+      },
+    }
+  );
 
+  //  DELETE MUTATION
   const [deleteProject] = useMutation(DELETE_PROJECT_GQ, {
     variables: {
       id: pid,
@@ -43,6 +52,7 @@ function Project() {
     refetchQueries: [{ query: GET_PROJECTS_GQ }],
   });
 
+  // UPDATE MUTATION
   const [updateProject] = useMutation(UPDATE_PROJECT_GQ, {
     variables: {
       id: pid,
@@ -50,8 +60,8 @@ function Project() {
     },
     refetchQueries: [{ query: GET_PROJECT_GQ }],
     onCompleted: () => {
-      setNewStatus("")
-    }
+      setNewStatus("");
+    },
   });
 
   if (loading) {

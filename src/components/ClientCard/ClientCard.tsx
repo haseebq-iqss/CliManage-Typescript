@@ -1,9 +1,13 @@
-import React from "react";
-import "./ClientCard.scss";
-import { SlideInAnimator } from "../../animation-engine/AnimatorPresets";
 import { Email, Person, Phone } from "@mui/icons-material";
+import { SlideInAnimator } from "../../animation-engine/AnimatorPresets";
+import { Client } from "../../types/ClientTypes";
+import "./ClientCard.scss";
 
-function ClientCard({ client }: any) {
+interface ClientCardInterface {
+  client?: Client;
+}
+
+function ClientCard({ client }: ClientCardInterface) {
   console.log(client);
   return (
     <SlideInAnimator time={0.25}>

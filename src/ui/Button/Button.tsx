@@ -13,12 +13,7 @@ function SButton({
   ...rest
 }: SButtonProps) {
   return (
-    <Button
-      {...rest}
-      color={color}
-      onClick={callback}
-      variant={variant}
-    >
+    <Button {...rest} color={color} onClick={callback} variant={variant}>
       {children}
     </Button>
   );
